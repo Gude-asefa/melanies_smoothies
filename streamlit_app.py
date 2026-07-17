@@ -56,7 +56,7 @@ if options :
         
         st.success('Your Smoothie is ordered!', icon="✅")
 import requests  
-moothiefroot_response = requests.get(
+smoothiefroot_response = requests.get(
     "https://my.smoothiefroot.com/api/fruit/watermelon"
 )
  
