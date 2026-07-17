@@ -35,7 +35,7 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 
 pd_df= my_dataframe.to_pandas()
 st.dataframe(pd_df)
-st.stop()
+#st.stop()
 
 
 
@@ -80,11 +80,4 @@ if options :
         
         st.success('Your Smoothie is ordered!', icon="✅")
 
- 
-#st.text(smoothiefroot_response)
-#smoothiefroot_json = smoothiefroot_response.json()
 
-# Display the JSON
-#st.json(smoothiefroot_json)
-
-# Convert the JSON to a DataFrame
