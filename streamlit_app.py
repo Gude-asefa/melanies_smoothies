@@ -47,17 +47,25 @@ options = st.multiselect(
 if options :
     #st.write(options)
     #st.text(options)
-    ingredients_string = ''
+    ingredients_string = ", ".join(options)
 
     for fruits_chosen in options:
-      ingredients_string += fruits_chosen
+      search_on = pd_df.loc[
+        pd_df['FRUIT_NAME'] == fruits_chosen,
+        'SEARCH_ON'
+      ].iloc[0]
 
-      search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruits_chosen, 'SEARCH_ON'].iloc[0]
-      st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
-      
-      st.subheader(fruits_chosen + 'Nutrition Information')
-      smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
-      st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+      st.write(f"The search value for {fruits_chosen} is {search_on}")
+
+      st.subheader(f"{fruits_chosen} Nutrition Information")
+
+      smoothiefroot_response = requests.get(
+        f"https://my.smoothiefroot.com/api/fruit/{search_on}"
+      )
+
+      fruit_df = pd.json_normalize(smoothiefroot_response.json())
+
+      st.dataframe(fruit_df, use_container_width=True)
       
 
     st.write(ingredients_string)
