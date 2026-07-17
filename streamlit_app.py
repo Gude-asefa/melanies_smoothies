@@ -69,4 +69,3 @@ if options :
 #st.json(smoothiefroot_json)
 
 # Convert the JSON to a DataFrame
-st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
