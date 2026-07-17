@@ -61,3 +61,13 @@ smoothiefroot_response = requests.get(
 )
  
 st.text(smoothiefroot_response)
+smoothiefroot_json = smoothiefroot_response.json()
+
+# Display the JSON
+st.json(smoothiefroot_json)
+
+# Convert the JSON to a DataFrame
+smoothiefroot_df = pd.json_normalize(smoothiefroot_json)
+
+# Display the DataFrame
+st.dataframe(smoothiefroot_df, use_container_width=True)
