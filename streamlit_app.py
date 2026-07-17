@@ -55,7 +55,7 @@ if options :
         'SEARCH_ON'
       ].iloc[0]
 
-      st.write(f"The search value for {fruits_chosen} is {search_on}")
+     #st.write(f"The search value for {fruits_chosen} is {search_on}")
 
       st.subheader(f"{fruits_chosen} Nutrition Information")
 
