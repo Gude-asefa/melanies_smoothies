@@ -56,6 +56,7 @@ if options :
         
         st.success('Your Smoothie is ordered!', icon="✅")
 import requests  
+import pandas as pd
 smoothiefroot_response = requests.get(
     "https://my.smoothiefroot.com/api/fruit/watermelon"
 )
